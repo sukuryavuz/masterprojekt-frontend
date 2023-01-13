@@ -1,0 +1,16 @@
+.login-card {
+    width: 35%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+.login-form-field {
+    padding-top: 1em;
+    width: 100%;
+  }
+
+.loginButton {
+    position:center;
+}
