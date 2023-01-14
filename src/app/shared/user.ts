@@ -1,4 +1,3 @@
-
 export class User {
     id?: any;
     firstname?: string;
@@ -13,4 +12,12 @@ export class User {
         this.password = password;
         this.username = username;
     }
+}
+
+// used to register an User
+export interface Userr {
+  firstname: string;
+  lastname: string;
+  password: string;
+  username: string;
 }

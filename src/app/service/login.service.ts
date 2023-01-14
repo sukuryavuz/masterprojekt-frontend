@@ -39,6 +39,14 @@ export class LoginService {
     )).pipe(retry(1), catchError(this.handleError));
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.isLoggedIn.next(false);
+    this.user.next(null!);
+    this.router.navigate(['/']);
+  }
+
   setIsLoggedIn(isLoggedIn: boolean) {
     this.isLoggedIn.next(isLoggedIn);
   }

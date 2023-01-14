@@ -4,28 +4,36 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { LoginService } from 'src/app/service/login.service';
-import { User } from 'src/app/shared/user';
+import { User, Userr } from 'src/app/shared/user';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BannerService } from 'src/app/banner/banner.service';
 import { handleError } from 'src/app/shared/errors';
+import { Subscription } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { RegisterComponent } from 'src/app/register/register.component';
 @Component({
   standalone: true,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  imports: [MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule]
+  imports: [MatCardModule, MatFormFieldModule, MatButtonModule, MatInputModule, RegisterComponent]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+  firstname: string;
+  lastname: string;
+  username: string;
+  password: string;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
     private snackBar: MatSnackBar,
-    private bannerService: BannerService
-  ) {}
-
-  ngOnInit(): void {}
+    private bannerService: BannerService,
+    private dialog: MatDialog
+  ) {
+    this.loginService.logout();
+  }
 
   // login(username:string, password:string) {
   //   this.loginService
@@ -43,14 +51,14 @@ export class LoginComponent implements OnInit {
   login(username:string, password:string) {
     this.loginService
       .login(username, password)
-      .pipe(
-        handleError(401, 'Unauthorized', () =>
-          this.bannerService.open({
-            title: `Dieser Benutzer wurde nicht gefunden.`,
-            text: 'Bitte überprüfen Sie Ihre Login Daten',
-            icon: 'change_circle'
-          }))
-      )
+      // .pipe(
+      //   handleError(401, 'Unauthorized', () =>
+      //     this.bannerService.open({
+      //       title: `Dieser Benutzer wurde nicht gefunden.`,
+      //       text: 'Bitte überprüfen Sie Ihre Login Daten',
+      //       icon: 'change_circle'
+      //     }))
+      // )
       .subscribe(data => {
         this.snackBar.open(`Sie wurden eingelogged`);
         const user = new User(data.username, data.id);
@@ -62,6 +70,19 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  readonly #refresh = (): Promise<boolean> =>
-    this.router.navigateByUrl(this.router.url);
+  register(): void {
+    const dialogRef = this.dialog.open(RegisterComponent, {
+      data: {
+        firstname: this.firstname,
+        lastname: this.lastname,
+        username: this.username,
+        password: this.password
+      },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.username = result;
+    });
+  }
 }
