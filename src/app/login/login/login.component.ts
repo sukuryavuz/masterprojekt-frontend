@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { LoginService } from 'src/app/service/login.service';
-import { User, Userr } from 'src/app/shared/user';
+import { User } from 'src/app/shared/user';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BannerService } from 'src/app/banner/banner.service';
-import { handleError } from 'src/app/shared/errors';
-import { Subscription } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from 'src/app/register/register.component';
 @Component({

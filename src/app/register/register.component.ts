@@ -1,10 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Userr } from '../shared/user';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginService } from 'src/app/service/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   standalone: true,
@@ -23,7 +25,9 @@ export class RegisterComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private readonly data: Userr,
-    public dialogRef: MatDialogRef<RegisterComponent, boolean>
+    public dialogRef: MatDialogRef<RegisterComponent, boolean>,
+    private loginService: LoginService,
+    private snackBar: MatSnackBar
   ) {}
 
   cancel(): void {
@@ -31,6 +35,11 @@ export class RegisterComponent {
   }
 
   registrieren(form: NgForm): void {
-    console.log(this.model.firstname);
+    this.loginService
+      .register(this.model.firstname, this.model.lastname, this.model.username, this.model.password)
+      .subscribe(() => {
+        this.snackBar.open('Sie haben sich erfolgreich registriert. Nun können Sie sich einloggen');
+        this.dialogRef.close(true);
+      });
   }
 }

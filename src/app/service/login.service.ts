@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
-import { User } from '../shared/user';
+import { User, Userr } from '../shared/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  url: string = 'http://localhost:8080/login';
+  url: string = 'http://localhost:8080/';
 
   private user: BehaviorSubject<User>;
   private isLoggedIn: BehaviorSubject<boolean>;
@@ -28,15 +28,34 @@ export class LoginService {
       password: password
     }
   }
+
+  createRegisterBody(firstname: string, lastname: string, username: string, password: string) {
+    return {
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: password
+    }
+  }
   // login(username: string, password: string) {
   //   return this.http.post<any>(this.url, JSON.stringify(this.createLoginBody(username, password)))
   //       .pipe(retry(1), catchError(this.handleError));
   // }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(this.url, JSON.stringify(
+    return this.http.post<any>(this.url + 'login', JSON.stringify(
       this.createLoginBody(username, password)
     )).pipe(retry(1), catchError(this.handleError));
+  }
+
+  register(firstname: string, lastname: string, username: string, password: string): Observable<void> {
+    return this.http.post<any>(this.url + 'user/register', JSON.stringify(
+        this.createRegisterBody(firstname, lastname, username, password),
+      ), this.httpOptions
+    ).pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
   }
 
   logout() {
@@ -76,5 +95,9 @@ export class LoginService {
     return throwError(() => {
       return errorMessage;
     });
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   }
 }
