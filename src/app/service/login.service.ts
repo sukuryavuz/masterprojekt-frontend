@@ -28,9 +28,15 @@ export class LoginService {
       password: password
     }
   }
-  login(username: string, password: string) {
-    return this.http.post<any>(this.url, JSON.stringify(this.createLoginBody(username, password)))
-        .pipe(retry(1), catchError(this.handleError));
+  // login(username: string, password: string) {
+  //   return this.http.post<any>(this.url, JSON.stringify(this.createLoginBody(username, password)))
+  //       .pipe(retry(1), catchError(this.handleError));
+  // }
+
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>(this.url, JSON.stringify(
+      this.createLoginBody(username, password)
+    )).pipe(retry(1), catchError(this.handleError));
   }
 
   setIsLoggedIn(isLoggedIn: boolean) {
