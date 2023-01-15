@@ -18,11 +18,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { AvailableProductsComponent } from './available-products/available-products.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { MyBoughtProductsComponent } from './my-bought-products/my-bought-products.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    BuyProductComponent,
+    MyBoughtProductsComponent,
   ],
   imports: [
     BrowserModule,
