@@ -1,19 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { ProductService } from 'src/app/service/product/product.service';
+import { ProductService } from '../service/product/product.service';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
 @Component({
-  standalone: true,
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  standalone:true,
+  selector: 'app-available-products',
+  templateUrl: './available-products.component.html',
+  styleUrls: ['./available-products.component.css'],
   imports: [MatCardModule, MatButtonModule, CommonModule]
 })
-
-export class HomeComponent {
+export class AvailableProductsComponent {
 
   availableProducts: any[] = [];
 

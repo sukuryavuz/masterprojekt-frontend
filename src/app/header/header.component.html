@@ -4,7 +4,7 @@
     <span class="example-spacer"></span>
     <button mat-raised-button (click)="addProduct()">Produkt hinzufügen</button>
     <button mat-raised-button (click)="getMyBoughtProducts()">Meine gekauften Produkte</button>
-    <button mat-raised-button (click)="availableProducts()">Verfügbare Produkte</button>
+    <button mat-raised-button [routerLink]="['/available-products']">Verfügbare Produkte</button>
     <button mat-icon-button (click)="logout()" matTooltip="Abmelden">
       <mat-icon>exit_to_app</mat-icon>
     </button>

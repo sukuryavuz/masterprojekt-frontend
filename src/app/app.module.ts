@@ -17,11 +17,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { AvailableProductsComponent } from './available-products/available-products.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatCardModule,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    AvailableProductsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
