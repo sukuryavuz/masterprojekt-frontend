@@ -64,7 +64,7 @@ export class LoginComponent {
         localStorage.setItem('token', data.token);
         this.loginService.setUser(user);
         this.loginService.setIsLoggedIn(true);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/available-products']);
       })
   }
 
