@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../service/login.service';
+import { LoginService } from '../service/login/login.service';
 import { User } from '../shared/user';
 
 @Component({
@@ -23,5 +23,22 @@ export class HeaderComponent implements OnInit {
         this.user = value;
         console.log(value);
       }))
+  }
+
+  addProduct() {
+
+  }
+
+  getMyBoughtProducts() {
+
+  }
+
+  availableProducts() {
+
+  }
+
+  logout() {
+    console.log("sie werden abgemeldet");
+    this.loginService.logout();
   }
 }

@@ -5,7 +5,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { Userr } from '../shared/user';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/service/login/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

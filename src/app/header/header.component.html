@@ -1,5 +1,12 @@
-<mat-tab-group *ngIf="isLoggedIn">
-  <mat-tab label="First"> Content 1 </mat-tab>
-  <mat-tab label="Second"> Content 2 </mat-tab>
-  <mat-tab label="Third"> Content 3 </mat-tab>
-</mat-tab-group>
+<p *ngIf="isLoggedIn">
+  <mat-toolbar color="primary">
+    <span>Produkte kaufen/verkaufen</span>
+    <span class="example-spacer"></span>
+    <button (click)="addProduct()">Produkt hinzufügen</button>
+    <button (click)="getMyBoughtProducts()">Meine gekauften Produkte</button>
+    <button (click)="availableProducts()">Verfügbare Produkte</button>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>

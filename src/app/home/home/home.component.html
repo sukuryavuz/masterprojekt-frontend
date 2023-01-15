@@ -1,1 +1,15 @@
-<p>home works!</p>
+<mat-card class="example-card" *ngFor="let availableProduct of availableProducts">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ availableProduct.user.username }}</mat-card-title>
+    <mat-card-subtitle>{{ availableProduct.productName }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p> {{ availableProduct.productDescription }}</p>
+    <p> {{ availableProduct.price }} €</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Kaufen</button>
+  </mat-card-actions>
+</mat-card>

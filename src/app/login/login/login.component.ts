@@ -3,7 +3,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { LoginService } from 'src/app/service/login.service';
+import { LoginService } from 'src/app/service/login/login.service';
 import { User } from 'src/app/shared/user';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';

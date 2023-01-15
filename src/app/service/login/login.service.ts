@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
-import { User, Userr } from '../shared/user';
+import { User, Userr } from '../../shared/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,10 @@ export class LoginService {
   private user: BehaviorSubject<User>;
   private isLoggedIn: BehaviorSubject<boolean>;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
     this.user = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
     if(localStorage.getItem('user')) {
       this.isLoggedIn = new BehaviorSubject<boolean>(true);
