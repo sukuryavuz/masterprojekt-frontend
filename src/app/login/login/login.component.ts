@@ -8,7 +8,7 @@ import { User } from 'src/app/shared/user';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BannerService } from 'src/app/banner/banner.service';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from 'src/app/register/register.component';
 @Component({
   standalone: true,

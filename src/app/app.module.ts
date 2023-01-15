@@ -23,7 +23,6 @@ import {MatCardModule} from '@angular/material/card';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +40,7 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
+    HomeComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
