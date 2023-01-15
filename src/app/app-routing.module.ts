@@ -5,6 +5,7 @@ import { AvailableProductsComponent } from './available-products/available-produ
 import { LoginComponent } from './login/login/login.component';
 import { MyBoughtProductsComponent } from './my-bought-products/my-bought-products.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 
 const routes: Routes = [
   { path: '',
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'my-products',
     component: MyProductsComponent
+  },
+  {
+    path: 'profile-overview',
+    component: ProfileOverviewComponent
   }
 ];
 

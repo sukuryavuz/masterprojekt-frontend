@@ -19,11 +19,13 @@ import { AvailableProductsComponent } from './available-products/available-produ
 import { MyBoughtProductsComponent } from './my-bought-products/my-bought-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { MyProductsComponent } from './my-products/my-products.component';
+import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProfileOverviewComponent,
   ],
   imports: [
     BrowserModule,

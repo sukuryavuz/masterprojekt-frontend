@@ -41,8 +41,7 @@ export class AddProductComponent {
       price)
     .subscribe(() => {
       this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
-      this.router.navigate(['/available-products']);
+      this.router.navigate(['/my-products']);
     })
   }
-
 }

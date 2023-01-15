@@ -6,6 +6,9 @@
     <button mat-raised-button [routerLink]="['/my-bought-products']">Meine gekauften Produkte</button>
     <button mat-raised-button [routerLink]="['/available-products']">Verfügbare Produkte</button>
     <button mat-raised-button [routerLink]="['/my-products']">Meine Produkte</button>
+    <button mat-icon-button [routerLink]="['/profile-overview']" matTooltip="Profilübersicht">
+      <mat-icon>settings</mat-icon>
+    </button>
     <button mat-icon-button (click)="logout()" matTooltip="Abmelden">
       <mat-icon>exit_to_app</mat-icon>
     </button>
