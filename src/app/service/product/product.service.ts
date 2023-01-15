@@ -31,6 +31,11 @@ export class ProductService {
       .pipe(retry(1), catchError(this.handleError));
     }
 
+    getMyProducts(userId: string): Observable<any> {
+      return this.http.get<any>(this.url + userId, this.getHeaders())
+      .pipe(retry(1), catchError(this.handleError));
+    }
+
     handleError(error: any) {
       let errorMessage = '';
       if (error.error instanceof ErrorEvent) {

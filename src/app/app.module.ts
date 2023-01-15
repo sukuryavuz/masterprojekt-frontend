@@ -18,6 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import { AvailableProductsComponent } from './available-products/available-products.component';
 import { MyBoughtProductsComponent } from './my-bought-products/my-bought-products.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { MyProductsComponent } from './my-products/my-products.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     HeaderComponent,
     AvailableProductsComponent,
     MyBoughtProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    MyProductsComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
