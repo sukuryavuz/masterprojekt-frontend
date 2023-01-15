@@ -8,6 +8,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AppRoutingModule } from '../app-routing.module';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProductComponent } from '../add-product/add-product.component';
 @Component({
   standalone: true,
   selector: 'app-header',
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     public router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -37,6 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   addProduct() {
+    const dialogRef = this.dialog.open(AddProductComponent);
 
   }
 

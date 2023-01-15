@@ -1,1 +1,32 @@
-<p>add-product works!</p>
+<form #form="ngForm">
+<mat-form-field appearance="fill">
+  <mat-label>Produktname</mat-label>
+  <input
+    matInput
+    name="productName"
+    required
+    #productName
+  >
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Produktbeschreibung</mat-label>
+  <input
+    matInput
+    name="productDescription"
+    required
+    #productDescription
+  >
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Produktpreis</mat-label>
+  <input
+    matInput
+    name="price"
+    required
+    #price
+  >
+</mat-form-field>
+<mat-card-actions>
+  <button class="addProductBtn" mat-raised-button color="primary" (click)="addProduct(productName.value, productDescription.value, price.value)">Produkt hinzufügen</button>
+</mat-card-actions>
+</form>

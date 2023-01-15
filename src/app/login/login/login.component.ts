@@ -78,9 +78,9 @@ export class LoginComponent {
       },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.username = result;
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   this.username = result;
+    // });
   }
 }
