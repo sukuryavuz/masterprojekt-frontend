@@ -2,11 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../service/login/login.service';
 import { User } from '../shared/user';
+import { CommonModule } from '@angular/common';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
 
 @Component({
+  standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  imports: [CommonModule, MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule]
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;

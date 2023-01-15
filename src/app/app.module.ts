@@ -21,8 +21,7 @@ import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +39,8 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
