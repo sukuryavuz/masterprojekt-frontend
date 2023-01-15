@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <span>Produkte kaufen/verkaufen</span>
     <span class="example-spacer"></span>
-    <button mat-raised-button (click)="addProduct()">Produkt hinzufügen</button>
+    <button mat-raised-button [routerLink]="['/add-product']">Produkt hinzufügen</button>
     <button mat-raised-button [routerLink]="['/my-bought-products']">Meine gekauften Produkte</button>
     <button mat-raised-button [routerLink]="['/available-products']">Verfügbare Produkte</button>
     <button mat-icon-button (click)="logout()" matTooltip="Abmelden">

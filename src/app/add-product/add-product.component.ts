@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { User } from '../shared/user';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -23,6 +24,7 @@ export class AddProductComponent {
   constructor(
     private userService: UserService,
     private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || ' {}');
   }
@@ -39,8 +41,8 @@ export class AddProductComponent {
       price)
     .subscribe(() => {
       this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
+      this.router.navigate(['/available-products']);
     })
-
   }
 
 }

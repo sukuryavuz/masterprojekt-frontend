@@ -39,19 +39,6 @@ export class HeaderComponent implements OnInit {
       }))
   }
 
-  addProduct() {
-    const dialogRef = this.dialog.open(AddProductComponent);
-
-  }
-
-  getMyBoughtProducts() {
-
-  }
-
-  getAvailableProducts() {
-
-  }
-
   logout() {
     console.log("sie werden abgemeldet");
     this.loginService.logout();
