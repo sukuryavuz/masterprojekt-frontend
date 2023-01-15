@@ -10,7 +10,6 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
-import { HomeComponent } from './home/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -43,7 +42,6 @@ import { AddProductComponent } from './add-product/add-product.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    HomeComponent,
     HeaderComponent,
     AvailableProductsComponent,
     MyBoughtProductsComponent
