@@ -27,6 +27,11 @@ export class UserService {
     }
   }
 
+  getUser(userId: string): Observable<any> {
+    return this.http.get<any>(this.url + userId, this.getHeaders())
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
   getMyBoughtProducts(userId: string): Observable<any> {
     return this.http.get<any>(this.url + userId + "/products", this.getHeaders())
     .pipe(retry(1), catchError(this.handleError));

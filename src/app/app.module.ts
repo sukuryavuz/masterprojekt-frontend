@@ -25,7 +25,6 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +46,8 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
     AvailableProductsComponent,
     MyBoughtProductsComponent,
     AddProductComponent,
-    MyProductsComponent
+    MyProductsComponent,
+    ProfileOverviewComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
