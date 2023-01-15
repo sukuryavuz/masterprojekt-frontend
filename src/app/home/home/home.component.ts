@@ -29,7 +29,7 @@ export class HomeComponent {
       .getAvailableProducts()
       .subscribe((response) => {
         this.availableProducts = response;
-        console.log(response);
+        console.log(this.availableProducts);
       })
   }
 }

@@ -1,1 +1,17 @@
-<p>my-bought-products works!</p>
+<div class="myBoughtProducts">
+  <mat-card class="product-card" *ngFor="let myBoughtProduct of myBoughtProducts">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ myBoughtProduct.user.username }}</mat-card-title>
+      <mat-card-subtitle>{{ myBoughtProduct.productName }}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p> {{ myBoughtProduct.productDescription }}</p>
+      <p> {{ myBoughtProduct.price }} €</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Kaufen</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
