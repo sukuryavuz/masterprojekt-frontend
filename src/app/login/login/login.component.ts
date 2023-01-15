@@ -58,7 +58,7 @@ export class LoginComponent {
       //     }))
       // )
       .subscribe(data => {
-        this.snackBar.open(`Sie wurden eingelogged`);
+        this.snackBar.open(`Sie sind nun eingelogged`, 'X');
         const user = new User(data.username, data.id);
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', data.token);

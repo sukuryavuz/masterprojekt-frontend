@@ -1,0 +1,9 @@
+.mat-mdc-form-field {
+  display: flex!important;
+  margin: 1rem;
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: center!important;
+  margin: 0 1rem 1rem 1rem!important;
+}
