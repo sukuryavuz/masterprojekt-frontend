@@ -26,9 +26,9 @@ export class MyBoughtProductsComponent {
   }
 
   getMyBoughtProducts() {
-    console.log(this.user.username);
     this.userService.getMyBoughtProducts(this.user.username)
     .subscribe((response) => {
+      console.log(response);
       this.myBoughtProducts = response;
       console.log(this.myBoughtProducts)
     })

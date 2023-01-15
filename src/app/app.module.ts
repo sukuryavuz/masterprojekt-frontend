@@ -19,11 +19,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { AvailableProductsComponent } from './available-products/available-products.component';
 import { MyBoughtProductsComponent } from './my-bought-products/my-bought-products.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
