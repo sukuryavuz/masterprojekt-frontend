@@ -28,10 +28,9 @@ export class MyBoughtProductsComponent {
   getMyBoughtProducts() {
     this.userService.getMyBoughtProducts(this.user.username)
     .subscribe((response) => {
-      console.log(response);
       this.myBoughtProducts = response;
-      console.log("my Bought Products" + this.myBoughtProducts)
+      console.log(this.myBoughtProducts);
+
     })
   }
-
 }
