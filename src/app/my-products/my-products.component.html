@@ -1,7 +1,7 @@
-<div *ngIf="myProducts.length === 0">
-  <span>Sie haben derzeit keine Produkte.</span>
-</div>
 <div class="myProducts">
+  <div *ngIf="myProducts.length === 0">
+    <span>Sie haben derzeit keine Produkte.</span>
+  </div>
   <mat-card class="product-card" *ngFor="let myProduct of myProducts">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>

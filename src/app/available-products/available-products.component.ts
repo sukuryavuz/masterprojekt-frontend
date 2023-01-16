@@ -43,7 +43,5 @@ export class AvailableProductsComponent {
   logger() {
     console.log(this.sourceProducts);
     console.log(this.targetProducts);
-
-
   }
 }
