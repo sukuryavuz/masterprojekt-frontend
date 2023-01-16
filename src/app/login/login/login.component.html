@@ -1,6 +1,6 @@
 <mat-card class="login-card">
     <mat-card-title style="text-align: center">Login</mat-card-title>
-    <mat-card-content>
+    <mat-card-content class="login-card-content">
         <mat-form-field class="login-form-field">
             <mat-label>Username</mat-label>
             <input #username matInput placeholder="Max Mustermann">
@@ -10,7 +10,7 @@
             <input type="password" #password matInput placeholder="************">
         </mat-form-field>
     </mat-card-content>
-    <mat-card-actions>
+    <mat-card-actions class="login-card-actions">
         <button class="loginButton" mat-raised-button color="primary" (click)="login(this.username.value, this.password.value)">Login</button>
         <button class="registerButton" mat-raised-button color="secondary" (click)="register()">Jetzt registrieren</button>
     </mat-card-actions>
