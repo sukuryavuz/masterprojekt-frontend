@@ -6,8 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
-
+import { FormBuilder, FormsModule, } from '@angular/forms';
 
 @Component({
   standalone: true,
@@ -21,6 +20,7 @@ export class ProfileOverviewComponent implements OnInit {
   myProfile: any;
 
   constructor(
+    fb:FormBuilder,
     private userService: UserService,
     private snackBar: MatSnackBar
   ) {
@@ -43,8 +43,13 @@ export class ProfileOverviewComponent implements OnInit {
     firstname: string,
     lastname: string,
     username: string,
-    password: string
-  ): void {
+    password: string,
+    password2: string,
+  ): boolean {
+    if(password !== password2) {
+      this.snackBar.open('Die Passwörter stimmen nicht überein. Bitte prüfen Sie ihre Eingabe', 'X');
+      return false;
+    }
     this.userService.updateUser(
       this.user.username,
       firstname,
@@ -54,7 +59,7 @@ export class ProfileOverviewComponent implements OnInit {
     ).subscribe(() => {
       this.snackBar.open('Ihre Profildaten wurden erfolgreich aktualisiert', 'X');
     })
-
+    return true;
   }
 
 }
