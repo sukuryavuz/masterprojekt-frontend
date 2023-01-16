@@ -6,6 +6,7 @@ import { ProductService } from '../service/product/product.service';
 import { Router } from '@angular/router';
 import {PickListModule} from 'primeng/picklist';
 import {ButtonModule} from 'primeng/button';
+import { User } from '../shared/user';
 
 @Component({
   standalone:true,
@@ -15,12 +16,13 @@ import {ButtonModule} from 'primeng/button';
   imports: [MatCardModule, MatButtonModule, CommonModule, PickListModule, ButtonModule]
 })
 export class AvailableProductsComponent {
+  user: User;
 
   constructor(
     private productService: ProductService,
     public router: Router
   ) {
-    this.getAvailableProducts();
+    this.user = JSON.parse(localStorage.getItem('user') || ' {}');
   }
 
   sourceProducts: any[];
@@ -34,7 +36,7 @@ export class AvailableProductsComponent {
 
     getAvailableProducts() {
     this.productService
-      .getAvailableProducts()
+      .getAvailableProducts(this.user.username)
       .subscribe(products => this.sourceProducts = products);
   }
 

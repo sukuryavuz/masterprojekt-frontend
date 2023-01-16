@@ -26,8 +26,8 @@ export class ProductService {
       }
     }
 
-    getAvailableProducts(): Observable<any> {
-      return this.http.get<any>(this.url + "available-products", this.getHeaders())
+    getAvailableProducts(userId: string): Observable<any> {
+      return this.http.get<any>(this.url + userId + "/available-products", this.getHeaders())
       .pipe(retry(1), catchError(this.handleError));
     }
 
