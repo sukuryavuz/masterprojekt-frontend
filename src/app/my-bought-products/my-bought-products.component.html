@@ -1,7 +1,4 @@
 <div class="myBoughtProducts">
-  <div *ngIf="myBoughtProducts.length === 0">
-    <span>Sie haben noch keine Produkte gekauft.</span>
-  </div>
   <mat-card class="product-card" *ngFor="let myBoughtProduct of myBoughtProducts">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>

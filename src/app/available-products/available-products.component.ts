@@ -17,6 +17,8 @@ import { User } from '../shared/user';
 })
 export class AvailableProductsComponent {
   user: User;
+  sourceProducts: any[];
+  targetProducts: any[];
 
   constructor(
     private productService: ProductService,
@@ -24,10 +26,6 @@ export class AvailableProductsComponent {
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || ' {}');
   }
-
-  sourceProducts: any[];
-
-  targetProducts: any[];
 
   ngOnInit() {
       this.getAvailableProducts();
@@ -38,6 +36,10 @@ export class AvailableProductsComponent {
     this.productService
       .getAvailableProducts(this.user.username)
       .subscribe(products => this.sourceProducts = products);
+  }
+
+  buyProducts() {
+
   }
 
   logger() {

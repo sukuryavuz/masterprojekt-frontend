@@ -52,8 +52,7 @@ export class RegisterComponent {
         console.log(response);
         this.snackBar.open('Sie haben sich erfolgreich registriert. Nun können Sie sich einloggen', 'X');
         this.dialogRef.close(true);
-        }
-      );
+      });
     } else {
       this.snackBar.open('Sie müssen alle Pflichtfelder ausfüllen, um fortfahren zu können.', 'X');
     }
