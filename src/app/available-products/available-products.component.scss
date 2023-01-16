@@ -31,6 +31,14 @@
     }
 }
 
+.buyProductsBtn {
+  margin-top:1rem;
+}
+.card {
+  width: 80%;
+  margin: 1rem auto auto auto;
+}
+
 @media screen and (max-width: 576px) {
     .product-item {
         flex-wrap: wrap;

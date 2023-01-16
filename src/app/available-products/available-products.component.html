@@ -1,3 +1,5 @@
+<div class="card">
+<p-card>
 <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Verfügbar" targetHeader="Ausgewählt" [dragdrop]="true"
   [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}" filterBy="productName"
   sourceFilterPlaceholder="Suche nach Namen" targetFilterPlaceholder="Suche nach Namen">
@@ -20,4 +22,6 @@
 </p-pickList>
 <div class="buyProductsBtn">
   <button pButton (click)="buyProducts()">Ausgewählte Produkte kaufen</button>
+</div>
+</p-card>
 </div>

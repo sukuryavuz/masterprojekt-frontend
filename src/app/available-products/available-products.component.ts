@@ -9,18 +9,19 @@ import {ButtonModule} from 'primeng/button';
 import { User } from '../shared/user';
 import { UserService } from '../service/user/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {CardModule} from 'primeng/card';
 
 @Component({
   standalone:true,
   selector: 'app-available-products',
   templateUrl: './available-products.component.html',
   styleUrls: ['./available-products.component.scss'],
-  imports: [MatCardModule, MatButtonModule, CommonModule, PickListModule, ButtonModule]
+  imports: [MatCardModule, MatButtonModule, CommonModule, PickListModule, ButtonModule, CardModule]
 })
 export class AvailableProductsComponent {
   user: User;
-  sourceProducts: any[];
-  targetProducts: any[];
+  sourceProducts: any[] = [];
+  targetProducts: any[] = [];
 
   constructor(
     private productService: ProductService,

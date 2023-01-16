@@ -1,16 +1,5 @@
-<p *ngIf="isLoggedIn">
-  <mat-toolbar color="primary">
-    <span>Produkte kaufen/verkaufen</span>
-    <span class="example-spacer"></span>
-    <button mat-raised-button [routerLink]="['/add-product']">Produkt hinzufügen</button>
-    <button mat-raised-button [routerLink]="['/my-bought-products']">Meine gekauften Produkte</button>
-    <button mat-raised-button [routerLink]="['/available-products']">Verfügbare Produkte</button>
-    <button mat-raised-button [routerLink]="['/my-products']">Meine Produkte</button>
-    <button mat-icon-button [routerLink]="['/profile-overview']" matTooltip="Profilübersicht">
-      <mat-icon>settings</mat-icon>
-    </button>
-    <button mat-icon-button (click)="logout()" matTooltip="Abmelden">
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
-  </mat-toolbar>
-</p>
+<p-menubar [model]="items" *ngIf="isLoggedIn">
+  <ng-template pTemplate="start">
+      <img src="assets/showcase/images/primeng.svg" height="40" class="mr-2">
+  </ng-template>
+</p-menubar>

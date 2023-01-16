@@ -25,6 +25,8 @@ import {ButtonModule} from 'primeng/button';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import {MatDividerModule} from '@angular/material/divider';
+import {CardModule} from 'primeng/card';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import {MatDividerModule} from '@angular/material/divider';
     PickListModule,
     ButtonModule,
     MenubarModule,
-    MatDividerModule
+    MatDividerModule,
+    CardModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

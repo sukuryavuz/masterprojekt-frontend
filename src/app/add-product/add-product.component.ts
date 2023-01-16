@@ -10,16 +10,18 @@ import {MatCardModule} from '@angular/material/card';
 import { User } from '../shared/user';
 import { Router } from '@angular/router';
 import {MatDividerModule} from '@angular/material/divider';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @Component({
   standalone: true,
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css'],
-  imports: [MatCardModule, MatFormFieldModule, FormsModule, MatDialogModule, MatInputModule, MatButtonModule, MatDividerModule]
+  imports: [MatCardModule, MatFormFieldModule, FormsModule, MatDialogModule, MatInputModule, MatButtonModule, MatDividerModule, FileUploadModule]
 })
 export class AddProductComponent {
   user: User;
+  file?: File;
 
   constructor(
     private userService: UserService,
@@ -43,5 +45,11 @@ export class AddProductComponent {
       this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
       this.router.navigate(['/my-products']);
     })
+  }
+
+  onChange(event:any) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+
   }
 }
