@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import {PickListModule} from 'primeng/picklist';
 import {ButtonModule} from 'primeng/button';
 import { User } from '../shared/user';
+import { UserService } from '../service/user/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   standalone:true,
@@ -22,7 +24,9 @@ export class AvailableProductsComponent {
 
   constructor(
     private productService: ProductService,
-    public router: Router
+    private userService: UserService,
+    public router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || ' {}');
   }
@@ -32,18 +36,19 @@ export class AvailableProductsComponent {
       this.targetProducts = [];
   }
 
-    getAvailableProducts() {
+  getAvailableProducts() {
     this.productService
       .getAvailableProducts(this.user.username)
       .subscribe(products => this.sourceProducts = products);
   }
 
   buyProducts() {
-
-  }
-
-  logger() {
-    console.log(this.sourceProducts);
-    console.log(this.targetProducts);
+    this.sourceProducts.forEach((product) => {
+      this.userService
+        .buyProduct(this.user.username, product.productId)
+        .subscribe(() => {
+          this.snackBar.open('Die ausgewählen Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
+        })
+    })
   }
 }

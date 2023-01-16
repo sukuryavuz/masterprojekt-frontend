@@ -51,12 +51,19 @@ export class UserService {
       JSON.stringify(this.createUserBody(firstname, lastname, username, password)),
       this.getHeaders()
     ).pipe(retry(1), catchError(this.handleError))
-  }
+  };
 
   removeAccount(userId: string): Observable<any> {
     return this.http.delete<any>(this.url + userId, this.getHeaders())
     .pipe(retry(1), catchError(this.handleError));
-  }
+  };
+
+  buyProduct(userId: string, productId: string): Observable<any> {
+    return this.http.post<any>(
+      this.url + userId + "/product/" + productId,
+      this.getHeaders()
+    ).pipe(retry(1), catchError(this.handleError))
+  };
 
   addProduct(
     userId: any,
