@@ -9,13 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { User } from '../shared/user';
 import { Router } from '@angular/router';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   standalone: true,
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css'],
-  imports: [MatCardModule, MatFormFieldModule, FormsModule, MatDialogModule, MatInputModule, MatButtonModule]
+  imports: [MatCardModule, MatFormFieldModule, FormsModule, MatDialogModule, MatInputModule, MatButtonModule, MatDividerModule]
 })
 export class AddProductComponent {
   user: User;

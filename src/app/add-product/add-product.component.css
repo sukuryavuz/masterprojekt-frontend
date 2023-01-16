@@ -1,0 +1,8 @@
+.add-product-card, .content-add-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}

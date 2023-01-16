@@ -22,6 +22,9 @@ import { MyProductsComponent } from './my-products/my-products.component';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 import { PickListModule } from 'primeng/picklist';
 import {ButtonModule} from 'primeng/button';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import {ButtonModule} from 'primeng/button';
     ProfileOverviewComponent,
     PickListModule,
     ButtonModule,
+    MenubarModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

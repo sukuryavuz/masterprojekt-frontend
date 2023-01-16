@@ -8,12 +8,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AppRoutingModule } from '../app-routing.module';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 @Component({
   standalone: true,
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  imports: [AppRoutingModule, CommonModule, MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule]
+  imports: [AppRoutingModule, CommonModule, MatButtonModule, MatToolbarModule, MatIconModule, MatTooltipModule, MenubarModule]
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
