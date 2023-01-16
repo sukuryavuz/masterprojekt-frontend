@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
       }))
       this.loginService.getUser().subscribe((value => {
         this.user = value;
-        console.log("Logged In User" + value);
       }))
   }
 
