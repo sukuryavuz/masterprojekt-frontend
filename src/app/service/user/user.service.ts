@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
@@ -67,19 +67,19 @@ export class UserService {
 
   addProduct(
     userId: any,
-    productName: any,
-    productDescription: any,
-    price: any
+    product: FormData
+    // userId: any,
+    // productName: any,
+    // productDescription: any,
+    // price: any,
+    // file: any
   ): Observable<any> {
-    const product = {
-      productName: productName,
-      productDescription: productDescription,
-      price: price
-    };
     console.log(product);
+    console.log(userId);
+
     return this.http.post<any>(
       this.url + userId + "/product",
-      JSON.stringify(product),
+      product,
       this.getHeaders()
     )
     .pipe(retry(1), catchError(this.handleError));
@@ -102,7 +102,7 @@ export class UserService {
 
   getHeaders() {
     this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+   //   'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return { headers: this.headers };
   }
