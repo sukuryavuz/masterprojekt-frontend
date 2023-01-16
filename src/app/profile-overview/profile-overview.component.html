@@ -1,4 +1,7 @@
-<form>
+<mat-card class="app-card">
+  <mat-card-title-group>
+    <span>Ihre Profilübersicht</span>
+  </mat-card-title-group>
   <mat-form-field appearance="fill">
     <mat-label>Vorname</mat-label>
     <input
@@ -6,6 +9,7 @@
       name="firstname"
       required
       #firstname
+      [value]="myProfile.firstname"
     >
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -15,6 +19,7 @@
       name="lastname"
       required
       #lastname
+      [value]="myProfile.lastname"
     >
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -24,6 +29,7 @@
       name="username"
       required
       #username
+      [value]="myProfile.username"
     >
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -34,9 +40,10 @@
       name="password"
       required
       #password
+      [value]="myProfile.password"
     >
   </mat-form-field>
   <mat-card-actions>
     <button class="save" mat-raised-button color="primary" (click)="save(firstname.value, lastname.value, username.value, password.value)">Speichern</button>
   </mat-card-actions>
-  </form>
+</mat-card>

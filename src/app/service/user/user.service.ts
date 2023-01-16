@@ -37,6 +37,22 @@ export class UserService {
     .pipe(retry(1), catchError(this.handleError));
   }
 
+  createUserBody(firstname: string, lastname: string, username: string, password: string) {
+    return {
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: password
+    }
+  }
+  updateUser(userId: string, firstname:string, lastname: string, username: string, password: string): Observable<any> {
+    return this.http.put<any>(
+      this.url + userId,
+      JSON.stringify(this.createUserBody(firstname, lastname, username, password)),
+      this.getHeaders()
+    ).pipe(retry(1), catchError(this.handleError))
+  }
+
   addProduct(
     userId: any,
     productName: any,

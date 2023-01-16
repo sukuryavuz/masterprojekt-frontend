@@ -27,7 +27,7 @@ export class AvailableProductsComponent {
       .getAvailableProducts()
       .subscribe((response) => {
         this.availableProducts = response;
-        console.log(this.availableProducts);
+        console.log("Available Products:" + this.availableProducts);
       })
   }
 }

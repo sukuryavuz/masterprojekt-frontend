@@ -30,7 +30,7 @@ export class MyBoughtProductsComponent {
     .subscribe((response) => {
       console.log(response);
       this.myBoughtProducts = response;
-      console.log(this.myBoughtProducts)
+      console.log("my Bought Products" + this.myBoughtProducts)
     })
   }
 
