@@ -33,30 +33,9 @@ export class LoginComponent {
     this.loginService.logout();
   }
 
-  // login(username:string, password:string) {
-  //   this.loginService
-  //   .login(username, password)
-  //   .subscribe(data => {
-  //     const user = new User(data.username, data.id);
-  //     localStorage.setItem('user', JSON.stringify(user));
-  //     localStorage.setItem('token', data.token);
-  //     this.loginService.setUser(user);
-  //     this.loginService.setIsLoggedIn(true);
-  //     this.router.navigate(['/home']);
-  //   })
-  // }
-
   login(username:string, password:string) {
     this.loginService
       .login(username, password)
-      // .pipe(
-      //   handleError(401, 'Unauthorized', () =>
-      //     this.bannerService.open({
-      //       title: `Dieser Benutzer wurde nicht gefunden.`,
-      //       text: 'Bitte überprüfen Sie Ihre Login Daten',
-      //       icon: 'change_circle'
-      //     }))
-      // )
       .subscribe(data => {
         this.snackBar.open(`Sie sind nun eingelogged`, 'X');
         const user = new User(data.username, data.id);
@@ -77,10 +56,5 @@ export class LoginComponent {
         password: this.password
       },
     });
-
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.username = result;
-    // });
   }
 }
