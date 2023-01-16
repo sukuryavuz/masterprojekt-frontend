@@ -48,33 +48,35 @@ export class AddProductComponent {
     price: any
   ): void {
 
-    const productFormData = this.prepareFormData(this.product);
+    this.userService.addProduct(this.user.username, productName, productDescription, price, this.file).subscribe();
 
-    this.userService.addProduct(
-      this.user.username,
-      productFormData)
-    .subscribe(() => {
-      this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
-      this.router.navigate(['/my-products']);
-    })
-  }
+  //   const productFormData = this.prepareFormData(this.product);
 
-  prepareFormData(product: Product): FormData {
-    const formData = new FormData();
-    formData.append(
-      'product',
-      new Blob([JSON.stringify(product)], {type: 'application/json'})
-    );
+  //   this.userService.addProduct(
+  //     this.user.username,
+  //     productFormData)
+  //   .subscribe(() => {
+  //     this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
+  //     this.router.navigate(['/my-products']);
+  //   })
+  // }
 
-    for(var i = 0; i < product.productImages.length; i++) {
-      formData.append(
-        'imageFile',
-        product.productImages[i].file,
-        product.productImages[i].file.name
-      );
-    }
+  // prepareFormData(product: Product): FormData {
+  //   const formData = new FormData();
+  //   formData.append(
+  //     'product',
+  //     new Blob([JSON.stringify(product)], {type: 'application/json'})
+  //   );
 
-    return formData;
+  //   for(var i = 0; i < product.productImages.length; i++) {
+  //     formData.append(
+  //       'imageFile',
+  //       product.productImages[i].file,
+  //       product.productImages[i].file.name
+  //     );
+  //   }
+
+  //   return formData;
   }
 
   onChange(event:any) {

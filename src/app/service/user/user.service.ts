@@ -67,19 +67,23 @@ export class UserService {
 
   addProduct(
     userId: any,
-    product: FormData
+    // product: FormData
     // userId: any,
-    // productName: any,
-    // productDescription: any,
-    // price: any,
-    // file: any
+    productName: any,
+    productDescription: any,
+    price: any,
+    file: any
   ): Observable<any> {
-    console.log(product);
     console.log(userId);
+    const formData:FormData = new FormData();
+    formData.append("file", file);
+    formData.append("productName", productName);
+    formData.append("productDescription", productDescription);
+    formData.append("price", price);
 
-    return this.http.post<any>(
+    return this.http.post(
       this.url + userId + "/product",
-      product,
+      formData,
       this.getHeaders()
     )
     .pipe(retry(1), catchError(this.handleError));
