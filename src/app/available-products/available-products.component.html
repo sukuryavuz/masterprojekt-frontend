@@ -1,17 +1,22 @@
-<div class="availableProducts">
-  <mat-card class="product-card" *ngFor="let availableProduct of availableProducts">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ availableProduct.user.username }}</mat-card-title>
-      <mat-card-subtitle>{{ availableProduct.productName }}</mat-card-subtitle>
-    </mat-card-header>
-    <img class="image" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p> {{ availableProduct.productDescription }}</p>
-      <p> {{ availableProduct.price }} €</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary">Kaufen</button>
-    </mat-card-actions>
-  </mat-card>
-  </div>
+<p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Verfügbar" targetHeader="Ausgewählt" [dragdrop]="true"
+  [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}" filterBy="productName"
+  sourceFilterPlaceholder="Suche nach Namen" targetFilterPlaceholder="Suche nach Namen">
+  <ng-template let-product pTemplate="item">
+      <div class="product-item">
+          <div class="image-container">
+                  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" [alt]="product.productName" class="product-image" />
+          </div>
+          <div class="product-list-detail">
+              <h5 class="mb-2">{{product.productName}}</h5>
+              <i class="pi pi-tag product-category-icon"></i>
+              <span class="product-category">{{product.productDescription}}</span>
+          </div>
+          <div class="product-list-action">
+              <h6 class="mb-2">€{{product.price}}</h6>
+              <span [class]="'product-badge status-' + product.status">{{product.status}}</span>
+          </div>
+      </div>
+  </ng-template>
+</p-pickList>
+
+<button pButton (click)="logger()" >Logger</button>

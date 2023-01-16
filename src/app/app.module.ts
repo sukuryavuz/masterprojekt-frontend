@@ -20,7 +20,8 @@ import { MyBoughtProductsComponent } from './my-bought-products/my-bought-produc
 import { AddProductComponent } from './add-product/add-product.component';
 import { MyProductsComponent } from './my-products/my-products.component';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
-
+import { PickListModule } from 'primeng/picklist';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import { ProfileOverviewComponent } from './profile-overview/profile-overview.co
     MyBoughtProductsComponent,
     AddProductComponent,
     MyProductsComponent,
-    ProfileOverviewComponent
+    ProfileOverviewComponent,
+    PickListModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
