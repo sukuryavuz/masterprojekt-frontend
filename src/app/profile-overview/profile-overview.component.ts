@@ -62,4 +62,12 @@ export class ProfileOverviewComponent implements OnInit {
     return true;
   }
 
+  removeAccount(): void {
+    this.userService.removeAccount(this.user.username)
+    .subscribe(data => {
+      this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
+      console.log(data);
+    })
+  }
+
 }

@@ -53,6 +53,11 @@ export class UserService {
     ).pipe(retry(1), catchError(this.handleError))
   }
 
+  removeAccount(userId: string): Observable<any> {
+    return this.http.delete<any>(this.url + userId, this.getHeaders())
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
   addProduct(
     userId: any,
     productName: any,
