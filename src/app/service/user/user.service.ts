@@ -106,7 +106,7 @@ export class UserService {
 
   getHeaders() {
     this.headers = new HttpHeaders({
-   //   'Content-Type': 'application/json',
+    //  'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return { headers: this.headers };
   }

@@ -44,20 +44,27 @@ export class AvailableProductsComponent {
       .getAvailableProducts(this.user.username)
       .subscribe((products) => {
         this.sourceProducts = products;
-        this.convertByteArrayToImage();
         console.log(this.sourceProducts);
-
+        console.log(this.targetProducts);
+        this.convertByteArrayToImage();
       });
   }
 
-  buyProducts() {
-    this.sourceProducts.forEach((product) => {
-      this.userService
-        .buyProduct(this.user.username, product.productId)
-        .subscribe(() => {
-          this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
-        })
-    })
+  buyProducts(): boolean {
+    if(this.targetProducts.length === 0) {
+      this.snackBar.open('Sie müssen zuerst Produkte in die Auswahlliste hinzufügen, um sie kaufen zu können', 'X');
+      return false;
+    } else {
+      this.targetProducts.forEach((product) => {
+        this.userService
+          .buyProduct(this.user.username, product.productId)
+          .subscribe(() => {
+            this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
+            this.router.navigate(['/my-bought-products']);
+          })
+      })
+    }
+    return true;
   }
 
   convertByteArrayToImage() {
