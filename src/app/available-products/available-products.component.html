@@ -1,4 +1,7 @@
 <div class="card">
+  <div *ngIf="sourceProducts.length === 0">
+    <h1 style="text-align: center; font-weight: bold; margin-top: 3rem;">Derzeit gibt es keine verfügbaren Produkte</h1>
+  </div>
 <p-card>
 <p-pickList [source]="sourceProducts" [target]="targetProducts" sourceHeader="Verfügbar" targetHeader="Ausgewählt" [dragdrop]="true"
   [responsive]="true" [sourceStyle]="{'height':'30rem'}" [targetStyle]="{'height':'30rem'}" filterBy="productName"

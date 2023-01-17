@@ -33,6 +33,9 @@
 
 .buyProductsBtn {
   margin-top:1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
 }
 .card {
   width: 80%;
