@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormsModule, } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -22,7 +23,8 @@ export class ProfileOverviewComponent implements OnInit {
   constructor(
     fb:FormBuilder,
     private userService: UserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
   }
@@ -63,11 +65,15 @@ export class ProfileOverviewComponent implements OnInit {
   }
 
   removeAccount(): void {
-    this.userService.removeAccount(this.user.username)
-    .subscribe(data => {
-      this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
-      console.log(data);
-    })
+    if(confirm("Sind Sie sich sicher, dass Sie ihr Account endgültig löschen möchten?")) {
+      this.userService.removeAccount(this.user.username)
+      .subscribe(data => {
+        this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
+        this.router.navigate(['/'])
+        console.log(data);
+      })
+    }
+
   }
 
 }
