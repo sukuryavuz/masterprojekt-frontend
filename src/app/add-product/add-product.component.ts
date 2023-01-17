@@ -30,7 +30,7 @@ export class AddProductComponent {
     productName: "",
     productDescription: "",
     price: "",
-    productImages: []
+    file: []
   };
 
   constructor(
@@ -65,7 +65,7 @@ export class AddProductComponent {
         )
       }
 
-      this.product.productImages?.push(fileHandle);
+      this.product.file?.push(fileHandle);
     }
   }
 }

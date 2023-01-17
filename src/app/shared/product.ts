@@ -5,13 +5,13 @@ export class Product {
     price: any;
     productDescription: string;
     productName: string;
-    productImages?: FileHandle[]
+    file?: FileHandle[]
 
-    constructor(price: any, productDescription: string, productName: string, productImages?: FileHandle[], productId?: any) {
+    constructor(price: any, productDescription: string, productName: string, file?: FileHandle[], productId?: any) {
         this.productId = productId;
         this.price = price;
         this.productDescription = productDescription;
         this.productName = productName;
-        this.productImages = productImages;
+        this.file = file;
     }
 }

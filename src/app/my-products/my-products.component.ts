@@ -59,7 +59,8 @@ export class MyProductsComponent {
         productName: product.productName,
         productDescription: product.productDescription,
         price: product.price,
-        productId: product.productId
+        productId: product.productId,
+        file: product.file
       }
     });
     dialogRef.afterClosed().subscribe(result => {

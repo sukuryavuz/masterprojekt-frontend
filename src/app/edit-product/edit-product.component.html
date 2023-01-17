@@ -30,10 +30,11 @@
         [(ngModel)]="model.price"
       />
     </mat-form-field>
+    <img class="image-edit-product" mat-card-image [src]="model.file">
   </mat-card-content>
   </form>
 </mat-dialog-content>
-<mat-dialog-actions align="end">
+<mat-dialog-actions align="center">
   <button mat-stroked-button (click)="cancel()">Abbrechen</button>
   <button mat-raised-button color="primary" (click)="save(form)">Speichern</button>
 </mat-dialog-actions>
