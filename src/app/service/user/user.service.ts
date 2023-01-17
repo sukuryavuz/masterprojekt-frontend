@@ -67,8 +67,6 @@ export class UserService {
 
   addProduct(
     userId: any,
-    // product: FormData
-    // userId: any,
     productName: any,
     productDescription: any,
     price: any,
@@ -84,7 +82,7 @@ export class UserService {
     return this.http.post(
       this.url + userId + "/product",
       formData,
-      this.getHeaders()
+      this.getHeadersWithoutContentType()
     )
     .pipe(retry(1), catchError(this.handleError));
   }
@@ -106,7 +104,13 @@ export class UserService {
 
   getHeaders() {
     this.headers = new HttpHeaders({
-    //  'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') });
+    return { headers: this.headers };
+  }
+
+  getHeadersWithoutContentType() {
+    this.headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem('token') });
     return { headers: this.headers };
   }
