@@ -1,13 +1,40 @@
+<form (ngSubmit)="login(this.username.value, this.password.value)" [formGroup]="form">
 <mat-card class="login-card">
     <mat-card-title style="text-align: center">Login</mat-card-title>
     <mat-card-content class="login-card-content">
         <mat-form-field class="login-form-field">
             <mat-label>Username</mat-label>
-            <input #username matInput placeholder="Max Mustermann">
+            <input
+              #username
+              matInput
+              placeholder="Max Mustermann"
+              type="text"
+              formControlName="username"
+              class="form-control"
+              name="username"
+            >
+            <!-- <div class="ui-grid-col-4">
+              <div [hidden]="form.controls['username'].valid || !form.controls['username'].dirty" class="alert alert-danger">
+                  Das ist ein Pflichtfeld
+              </div>
+          </div> -->
         </mat-form-field>
         <mat-form-field class="login-form-field">
             <mat-label>Password</mat-label>
-            <input type="password" #password matInput placeholder="************">
+            <input
+              type="password"
+              #password
+              matInput
+              placeholder="************"
+              formControlName="password"
+              class="form-control"
+              name="password"
+            >
+            <!-- <div class="ui-grid-col-4">
+              <div [hidden]="form.controls['password'].valid || !form.controls['password'].dirty" class="alert alert-danger">
+                  Das ist ein Pflichtfeld
+              </div>
+          </div> -->
         </mat-form-field>
     </mat-card-content>
     <mat-card-actions class="login-card-actions">
@@ -15,3 +42,4 @@
         <button class="registerButton" mat-raised-button color="secondary" (click)="register()">Jetzt registrieren</button>
     </mat-card-actions>
   </mat-card>
+</form>
