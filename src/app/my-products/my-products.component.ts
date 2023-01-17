@@ -55,13 +55,14 @@ export class MyProductsComponent {
 
   editProduct(product:Product) {
     let dialogRef = this.dialog.open(EditProductComponent, {
+      width: '60%',
       data: {
         productName: product.productName,
         productDescription: product.productDescription,
         price: product.price,
         productId: product.productId,
         file: product.file
-      }
+      },
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log(result)

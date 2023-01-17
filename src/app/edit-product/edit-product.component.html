@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Produkt bearbeiten</h1>
+<h1 mat-dialog-title align="center">Produkt bearbeiten</h1>
 <mat-dialog-content>
   <form #form="ngForm">
     <mat-card-content class="edit-product-content">
@@ -13,15 +13,15 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Produktbeschreibung</mat-label>
-      <input
+      <textarea
         matInput
         name="productDescription"
         required
         [(ngModel)]="model.productDescription"
-      />
+      ></textarea>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Preis</mat-label>
+      <mat-label>Preis in €</mat-label>
       <input
         matInput
         name="price"
