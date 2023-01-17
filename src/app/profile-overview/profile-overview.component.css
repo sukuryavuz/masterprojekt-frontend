@@ -1,6 +1,18 @@
 .app-card {
   max-width: 60%;
-  margin-left:auto;
-  margin-right: auto;
+  margin: 2rem auto auto auto;
   padding: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form:first-child {
+  margin-top:1rem;
+}
+
+.mat-mdc-card-title-group {
+  justify-content: center;
 }
