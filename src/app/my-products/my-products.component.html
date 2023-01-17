@@ -1,3 +1,6 @@
+<div *ngIf="myProducts.length === 0">
+  <h1 style="text-align: center; font-weight: bold; margin-top: 3rem">Sie haben noch keine Produkte hinzugefügt.</h1>
+</div>
 <div class="myProducts">
   <mat-card class="product-card" *ngFor="let myProduct of myProducts">
     <mat-card-header>

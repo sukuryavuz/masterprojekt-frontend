@@ -12,5 +12,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-top: 1.5rem;
 }
