@@ -51,6 +51,9 @@ export class ProfileOverviewComponent implements OnInit {
     if(password !== password2) {
       this.snackBar.open('Die Passwörter stimmen nicht überein. Bitte prüfen Sie ihre Eingabe', 'X');
       return false;
+    } else if(firstname.length === 0 || lastname.length === 0 || username.length === 0 || password.length === 0 || password2.length === 0) {
+      this.snackBar.open('Sie müssen alle Pflichtfelder eingeben, um Ihre Profildaten abspeichern zu können', 'X');
+      return false;
     }
     this.userService.updateUser(
       this.user.username,
@@ -66,7 +69,8 @@ export class ProfileOverviewComponent implements OnInit {
 
   removeAccount(): void {
     if(confirm("Sind Sie sich sicher, dass Sie ihr Account endgültig löschen möchten?")) {
-      this.userService.removeAccount(this.user.username)
+      this.userService
+      .removeAccount(this.user.username)
       .subscribe(data => {
         this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
         this.router.navigate(['/'])
