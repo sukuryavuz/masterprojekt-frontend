@@ -48,7 +48,7 @@ export class AvailableProductsComponent {
       this.userService
         .buyProduct(this.user.username, product.productId)
         .subscribe(() => {
-          this.snackBar.open('Die ausgewählen Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
+          this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
         })
     })
   }
