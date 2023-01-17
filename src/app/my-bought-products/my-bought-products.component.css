@@ -1,6 +1,7 @@
 .product-card {
   max-width: 400px;
   margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .example-header-image {
@@ -13,4 +14,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.image {
+  width: 50%;
+  height: 50%;
+  margin: 0.5rem auto 0.5rem auto;
 }

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { User } from '../shared/user';
 import { UserService } from '../service/user/user.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   standalone: true,
@@ -19,7 +20,8 @@ export class MyBoughtProductsComponent {
 
   constructor(
     private userService: UserService,
-    public router: Router
+    public router: Router,
+    private sanitizer: DomSanitizer
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
     this.getMyBoughtProducts();
@@ -29,7 +31,15 @@ export class MyBoughtProductsComponent {
     this.userService.getMyBoughtProducts(this.user.username)
     .subscribe((response) => {
       this.myBoughtProducts = response;
+      this.convertByteArrayToImage();
       console.log(this.myBoughtProducts);
     })
+  }
+
+  convertByteArrayToImage() {
+    for(let i=0; i<this.myBoughtProducts.length; i++) {
+      let objectURL = 'data:image/png;base64,' + this.myBoughtProducts[i].file;
+      this.myBoughtProducts[i].file = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+    }
   }
 }
