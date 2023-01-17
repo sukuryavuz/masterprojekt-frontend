@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
-import { User, Userr } from '../../shared/user';
+import { User } from '../../shared/user';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    public snackBar: MatSnackBar
   ) {
     this.user = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user') || '{}'));
     if(localStorage.getItem('user')) {
@@ -44,7 +46,7 @@ export class LoginService {
   login(username: string, password: string): Observable<any> {
     return this.http.post<any>(this.url + 'login', JSON.stringify(
       this.createLoginBody(username, password)
-    )).pipe(retry(1), catchError(this.handleError));
+    )).pipe(retry(1), catchError(this.handleLoginError.bind(this)));
   }
 
   register(firstname: string, lastname: string, username: string, password: string): Observable<void> {
@@ -53,7 +55,7 @@ export class LoginService {
       ), this.httpOptions
     ).pipe(
         retry(1),
-        catchError(this.handleError)
+        catchError(this.handleRegisterError.bind(this))
       );
   }
 
@@ -91,6 +93,39 @@ export class LoginService {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     window.alert(errorMessage);
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
+
+  handleLoginError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `${error.error.error}`;
+      if(errorMessage === 'Unauthorized') {
+        errorMessage = 'Bitte überprüfen sie Ihre Zugangsdaten.'
+      }
+    }
+    this.snackBar.open(errorMessage, 'X');
+    return throwError(() => {
+      return errorMessage;
+    });
+  }
+
+  handleRegisterError(error: any) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `${error.error}`;
+    }
+    this.snackBar.open(errorMessage, 'X');
     return throwError(() => {
       return errorMessage;
     });
