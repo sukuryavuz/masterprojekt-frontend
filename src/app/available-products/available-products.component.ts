@@ -10,6 +10,7 @@ import { User } from '../shared/user';
 import { UserService } from '../service/user/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {CardModule} from 'primeng/card';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   standalone:true,
@@ -27,7 +28,8 @@ export class AvailableProductsComponent {
     private productService: ProductService,
     private userService: UserService,
     public router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private sanitizer: DomSanitizer
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || ' {}');
   }
@@ -40,7 +42,12 @@ export class AvailableProductsComponent {
   getAvailableProducts() {
     this.productService
       .getAvailableProducts(this.user.username)
-      .subscribe(products => this.sourceProducts = products);
+      .subscribe((products) => {
+        this.sourceProducts = products;
+        this.convertByteArrayToImage();
+        console.log(this.sourceProducts);
+
+      });
   }
 
   buyProducts() {
@@ -51,5 +58,12 @@ export class AvailableProductsComponent {
           this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft. Sie finden diese nun unter "meine gekauften Produkte"', 'X');
         })
     })
+  }
+
+  convertByteArrayToImage() {
+    for(let i=0; i<this.sourceProducts.length; i++) {
+      let objectURL = 'data:image/png;base64,' + this.sourceProducts[i].file;
+      this.sourceProducts[i].file = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+    }
   }
 }
