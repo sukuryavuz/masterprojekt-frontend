@@ -47,36 +47,11 @@ export class AddProductComponent {
     productDescription: any,
     price: any
   ): void {
-
-    this.userService.addProduct(this.user.username, productName, productDescription, price, this.file).subscribe();
-
-  //   const productFormData = this.prepareFormData(this.product);
-
-  //   this.userService.addProduct(
-  //     this.user.username,
-  //     productFormData)
-  //   .subscribe(() => {
-  //     this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
-  //     this.router.navigate(['/my-products']);
-  //   })
-  // }
-
-  // prepareFormData(product: Product): FormData {
-  //   const formData = new FormData();
-  //   formData.append(
-  //     'product',
-  //     new Blob([JSON.stringify(product)], {type: 'application/json'})
-  //   );
-
-  //   for(var i = 0; i < product.productImages.length; i++) {
-  //     formData.append(
-  //       'imageFile',
-  //       product.productImages[i].file,
-  //       product.productImages[i].file.name
-  //     );
-  //   }
-
-  //   return formData;
+    this.userService.addProduct(this.user.username, productName, productDescription, price, this.file)
+    .subscribe(() => {
+      this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
+      this.router.navigate(['/my-products']);
+    });
   }
 
   onChange(event:any) {
@@ -93,32 +68,4 @@ export class AddProductComponent {
       this.product.productImages?.push(fileHandle);
     }
   }
-
-//   getBase64(file: File) {
-//     return new Promise((resolve, reject) => {
-//         if (!file) {
-//             reject('file object is null');
-//     }
-
-//         var reader = new FileReader();
-
-//         reader.onloadend = function () {
-//             resolve({ res: reader.result, name: file.name });
-//         };
-//         reader.readAsDataURL(file);
-//     });
-// }
-//   convertDataURIToBinary(dataURI:any) {
-//     var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
-//     var base64 = dataURI.substring(base64Index);
-//     var raw = window.atob(base64);
-//     var rawLength = raw.length;
-//     var array = new Uint8Array(new ArrayBuffer(rawLength));
-
-//     for(let i = 0; i < rawLength; i++) {
-//       array[i] = raw.charCodeAt(i);
-//     }
-//     return array;
-//   }
-
 }
