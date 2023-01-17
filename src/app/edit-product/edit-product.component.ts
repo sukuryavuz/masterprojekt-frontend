@@ -23,10 +23,10 @@ export class EditProductComponent {
     productName: this.data.productName,
     productDescription: this.data.productDescription,
     price: this.data.price,
-    file: this.data.file
   }
 
   productId: any = this.data.productId;
+  file: any =  this.data.file
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -35,7 +35,6 @@ export class EditProductComponent {
     public snackBar: MatSnackBar
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || ' {}');
-    console.log(this.model.file)
   }
 
   cancel = (): void => this.dialogRef.close();
