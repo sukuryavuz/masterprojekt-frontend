@@ -21,3 +21,8 @@
   height: 50%;
   margin: 0.5rem auto 0.5rem auto;
 }
+
+.actionsmenu {
+  position: absolute;
+  right: 0;
+}

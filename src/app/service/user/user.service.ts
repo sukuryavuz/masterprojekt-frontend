@@ -87,6 +87,13 @@ export class UserService {
     .pipe(retry(1), catchError(this.handleError));
   }
 
+  removeProduct(userId: any,productId: any): Observable<any> {
+    return this.http.delete(
+      this.url + userId + "/product/" + productId,
+      this.getHeaders()
+    ).pipe(retry(1), catchError(this.handleError))
+  }
+
   handleError(error: any) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
