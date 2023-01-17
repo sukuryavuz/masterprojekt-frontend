@@ -48,6 +48,7 @@ export class EditProductComponent {
       .subscribe(() => {
         this.snackBar.open('Das Produkt wurde aktualisiert', 'X');
         this.dialogRef.close(true);
+        window.location.reload();
       })
 
    }
