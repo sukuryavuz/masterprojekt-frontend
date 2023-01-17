@@ -3,6 +3,9 @@
   flex-direction: column;
   align-items: center;
   max-width: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto auto auto;
+}
+
+.addProductBtn {
+  margin-top: 1rem;
 }
