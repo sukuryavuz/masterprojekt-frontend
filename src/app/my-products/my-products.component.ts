@@ -68,10 +68,13 @@ export class MyProductsComponent {
   }
 
   removeProduct(productId: any) {
-    this.userService
+    if(confirm("Sind sie sich sicher, dass die das Produkt endgültig löschen möchten?")) {
+      this.userService
       .removeProduct(this.user.username, productId)
       .subscribe(() => {
         this.snackBar.open('Das Produkt wurde erfolgreich gelöscht');
+        window.location.reload();
       })
+    }
   }
 }

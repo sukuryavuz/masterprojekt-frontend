@@ -1,0 +1,4 @@
+.edit-product-content {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Produkt bearbeiten</h1>
 <mat-dialog-content>
   <form #form="ngForm">
-    <mat-card-content>
+    <mat-card-content class="edit-product-content">
     <mat-form-field appearance="fill">
       <mat-label>Produktname</mat-label>
       <input
@@ -25,6 +25,7 @@
       <input
         matInput
         name="price"
+        type="number"
         required
         [(ngModel)]="model.price"
       />
