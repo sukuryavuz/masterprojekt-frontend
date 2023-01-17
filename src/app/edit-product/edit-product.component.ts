@@ -41,6 +41,7 @@ export class EditProductComponent {
   save(form: NgForm): void {
     console.log(this.model);
     if(form.invalid) {
+      this.snackBar.open('Die Pflichtfelder müssen ausgefüllt sein.', 'X');
       return;
     }
     this.userService
