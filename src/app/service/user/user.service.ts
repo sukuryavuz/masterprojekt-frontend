@@ -72,7 +72,6 @@ export class UserService {
     price: any,
     file: any
   ): Observable<any> {
-    console.log(userId);
     const formData:FormData = new FormData();
     formData.append("file", file);
     formData.append("productName", productName);
@@ -90,6 +89,14 @@ export class UserService {
   removeProduct(userId: any,productId: any): Observable<any> {
     return this.http.delete(
       this.url + userId + "/product/" + productId,
+      this.getHeaders()
+    ).pipe(retry(1), catchError(this.handleError))
+  }
+
+  updateProduct(userId: any, productId: any, product:Product): Observable<any> {
+    return this.http.put(
+      this.url + userId + "/product/" + productId,
+      product,
       this.getHeaders()
     ).pipe(retry(1), catchError(this.handleError))
   }

@@ -27,6 +27,7 @@ import {MenuItem} from 'primeng/api';
 import {MatDividerModule} from '@angular/material/divider';
 import {CardModule} from 'primeng/card';
 import {FileUploadModule} from 'primeng/fileupload';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     MenubarModule,
     MatDividerModule,
     CardModule,
-    FileUploadModule
+    FileUploadModule,
+    EditProductComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

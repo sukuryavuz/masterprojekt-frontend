@@ -1,14 +1,14 @@
 import { FileHandle } from "./file-handle.model";
 
 export class Product {
-    id?: any;
+    productId?: any;
     price: any;
     productDescription: string;
     productName: string;
-    productImages: FileHandle[]
+    productImages?: FileHandle[]
 
-    constructor(price: any, productDescription: string, productName: string, productImages: FileHandle[], id?: any) {
-        this.id = id;
+    constructor(price: any, productDescription: string, productName: string, productImages?: FileHandle[], productId?: any) {
+        this.productId = productId;
         this.price = price;
         this.productDescription = productDescription;
         this.productName = productName;
