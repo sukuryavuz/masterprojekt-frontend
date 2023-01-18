@@ -33,6 +33,7 @@ export class MyBoughtProductsComponent {
       this.myBoughtProducts = response;
       this.convertByteArrayToImage();
       console.log(this.myBoughtProducts);
+      this.checkIfUserUploadedImage();
     })
   }
 
@@ -41,5 +42,13 @@ export class MyBoughtProductsComponent {
       let objectURL = 'data:image/png;base64,' + this.myBoughtProducts[i].file;
       this.myBoughtProducts[i].file = this.sanitizer.bypassSecurityTrustUrl(objectURL);
     }
+  }
+
+  checkIfUserUploadedImage(): any {
+    this.myBoughtProducts.forEach((product) => {
+      if(product.file.changingThisBreaksApplicationSecurity === "data:image/png;base64,null") {
+        product.file = "../../assets/noimage.jpg";
+      }
+    })
   }
 }

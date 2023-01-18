@@ -47,6 +47,7 @@ export class AvailableProductsComponent {
         console.log(this.sourceProducts);
         console.log(this.targetProducts);
         this.convertByteArrayToImage();
+        this.checkIfUserUploadedImage();
       });
   }
 
@@ -72,5 +73,13 @@ export class AvailableProductsComponent {
       let objectURL = 'data:image/png;base64,' + this.sourceProducts[i].file;
       this.sourceProducts[i].file = this.sanitizer.bypassSecurityTrustUrl(objectURL);
     }
+  }
+
+  checkIfUserUploadedImage(): any {
+    this.sourceProducts.forEach((product) => {
+      if(product.file.changingThisBreaksApplicationSecurity === "data:image/png;base64,null") {
+        product.file = "../../assets/noimage.jpg";
+      }
+    })
   }
 }

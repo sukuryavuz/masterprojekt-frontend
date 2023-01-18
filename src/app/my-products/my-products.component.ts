@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { UserService } from '../service/user/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { Product } from '../shared/product';
 import { MatChipsModule } from '@angular/material/chips';
