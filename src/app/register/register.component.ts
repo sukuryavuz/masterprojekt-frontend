@@ -49,7 +49,6 @@ export class RegisterComponent {
     this.loginService
       .register(this.model.firstname, this.model.lastname, this.model.username, this.model.password)
       .subscribe((response) => {
-        console.log(response);
         this.snackBar.open('Sie haben sich erfolgreich registriert. Nun können Sie sich einloggen', 'X');
         this.dialogRef.close(true);
       });

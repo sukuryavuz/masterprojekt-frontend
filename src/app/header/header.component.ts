@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit {
 
 
   logout() {
-    console.log("sie werden abgemeldet");
     this.loginService.logout();
     this.snackBar.open('Sie wurden abgemeldet.', 'X');
   }

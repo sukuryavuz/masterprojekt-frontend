@@ -37,7 +37,6 @@ export class ProfileOverviewComponent implements OnInit {
     this.userService.getUser(this.user.username)
     .subscribe((response) => {
       this.myProfile = response;
-      console.log(this.myProfile);
     })
   }
 
@@ -74,7 +73,6 @@ export class ProfileOverviewComponent implements OnInit {
       .subscribe(data => {
         this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
         this.router.navigate(['/'])
-        console.log(data);
       })
     }
 

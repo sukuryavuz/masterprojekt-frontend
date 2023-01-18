@@ -32,7 +32,6 @@ export class MyBoughtProductsComponent {
     .subscribe((response) => {
       this.myBoughtProducts = response;
       this.convertByteArrayToImage();
-      console.log(this.myBoughtProducts);
       this.checkIfUserUploadedImage();
     })
   }

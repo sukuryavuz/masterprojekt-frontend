@@ -43,7 +43,6 @@ export class MyProductsComponent {
     .subscribe((response) => {
       this.myProducts = response;
       this.convertByteArrayToImage();
-      console.log(this.myProducts);
       this.checkIfUserUploadedImage();
     })
   }
@@ -67,7 +66,6 @@ export class MyProductsComponent {
       },
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
     })
   }
 

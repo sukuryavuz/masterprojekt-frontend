@@ -44,8 +44,6 @@ export class AvailableProductsComponent {
       .getAvailableProducts(this.user.username)
       .subscribe((products) => {
         this.sourceProducts = products;
-        console.log(this.sourceProducts);
-        console.log(this.targetProducts);
         this.convertByteArrayToImage();
         this.checkIfUserUploadedImage();
       });
