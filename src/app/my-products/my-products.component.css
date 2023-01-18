@@ -33,6 +33,6 @@ span.product-status-AVAILABLE {
 }
 
 span.product-status-SOLD {
-  background: #C8E6C9;
-  color: #FF0000;
+  background: #db1e1e;
+  color: white;
 }
