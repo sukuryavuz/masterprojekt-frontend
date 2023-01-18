@@ -28,7 +28,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {CardModule} from 'primeng/card';
 import {FileUploadModule} from 'primeng/fileupload';
 import { EditProductComponent } from './edit-product/edit-product.component';
-
+import {MatChipsModule} from '@angular/material/chips';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +62,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     CardModule,
     FileUploadModule,
     EditProductComponent,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

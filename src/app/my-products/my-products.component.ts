@@ -13,13 +13,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { Product } from '../shared/product';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   standalone: true,
   selector: 'app-my-products',
   templateUrl: './my-products.component.html',
   styleUrls: ['./my-products.component.css'],
-  imports: [MatButtonModule, MatCardModule, CommonModule, MatMenuModule, MatIconModule]
+  imports: [MatButtonModule, MatCardModule, CommonModule, MatMenuModule, MatIconModule, MatChipsModule]
 })
 export class MyProductsComponent {
   user: User;
@@ -43,6 +44,7 @@ export class MyProductsComponent {
       this.myProducts = response;
       this.convertByteArrayToImage();
       console.log(this.myProducts);
+      this.checkIfUserUploadedImage();
     })
   }
 
@@ -78,5 +80,13 @@ export class MyProductsComponent {
         window.location.reload();
       })
     }
+  }
+
+  checkIfUserUploadedImage(): any {
+    this.myProducts.forEach((product) => {
+      if(product.file.changingThisBreaksApplicationSecurity === "data:image/png;base64,null") {
+        product.file = "../../assets/noimage.jpg";
+      }
+    })
   }
 }
