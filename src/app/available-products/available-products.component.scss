@@ -42,6 +42,11 @@
   margin: 1rem auto auto auto;
 }
 
+span.product-badge.status-AVAILABLE {
+  background: #C8E6C9;
+  color: #256029;
+}
+
 @media screen and (max-width: 576px) {
     .product-item {
         flex-wrap: wrap;
