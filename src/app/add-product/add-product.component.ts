@@ -46,7 +46,11 @@ export class AddProductComponent {
     productName: any,
     productDescription: any,
     price: any
-  ): void {
+  ): any {
+    if(productName === "" || productDescription === "" || price === "") {
+      this.snackBar.open('Sie müssen alle Pflichtfelder ausfüllen', 'X');
+      return false;
+    }
     this.userService.addProduct(this.user.username, productName, productDescription, price, this.file)
     .subscribe(() => {
       this.snackBar.open('Das Produkt wurde erfolgreich hinzugefügt und steht anderen Benutzern ab sofort zur Verfügung', 'X');
