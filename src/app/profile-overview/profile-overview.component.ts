@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import { FormBuilder, FormsModule, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../service/login/login.service';
 
 @Component({
   standalone: true,
@@ -24,7 +25,8 @@ export class ProfileOverviewComponent implements OnInit {
     fb:FormBuilder,
     private userService: UserService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
   }
@@ -40,7 +42,7 @@ export class ProfileOverviewComponent implements OnInit {
     })
   }
 
-  save(
+  updateUser(
     firstname: string,
     lastname: string,
     username: string,
@@ -61,7 +63,8 @@ export class ProfileOverviewComponent implements OnInit {
       username,
       password
     ).subscribe(() => {
-      this.snackBar.open('Ihre Profildaten wurden erfolgreich aktualisiert', 'X');
+      this.loginService.logout();
+      this.snackBar.open('Ihre Profildaten wurden erfolgreich aktualisiert. Bitte melden Sie sich erneut an.', 'X');
     })
     return true;
   }
