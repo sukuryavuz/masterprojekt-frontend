@@ -73,7 +73,9 @@ export class UserService {
     file: any
   ): Observable<any> {
     const formData:FormData = new FormData();
-    formData.append("file", file);
+    if(!(file === undefined)) {
+      formData.append("file", file);
+    }
     formData.append("productName", productName);
     formData.append("productDescription", productDescription);
     formData.append("price", price);
