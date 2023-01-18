@@ -55,12 +55,14 @@ export class AvailableProductsComponent {
       return false;
     } else {
       this.targetProducts.forEach((product) => {
-        this.userService
+        if(confirm("Möchten Sie diese Produkte wirklich kaufen?")) {
+          this.userService
           .buyProduct(this.user.username, product.productId)
           .subscribe(() => {
             this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft', 'X');
             this.router.navigate(['/my-bought-products']);
           })
+        }
       })
     }
     return true;
