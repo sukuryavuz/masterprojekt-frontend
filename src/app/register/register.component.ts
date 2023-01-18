@@ -22,7 +22,8 @@ export class RegisterComponent {
     firstname: this.data.firstname,
     lastname: this.data.lastname,
     username: this.data.username,
-    password: this.data.password
+    password: this.data.password,
+    password2: this.data.password2
   }
 
   constructor(
@@ -36,7 +37,8 @@ export class RegisterComponent {
       firstname:[null, Validators.required],
       lastname:[null, Validators.required],
       username:[null, Validators.required],
-      password:[null, Validators.required]
+      password:[null, Validators.required],
+      password2: [null, Validators.required]
     })
   }
 
@@ -46,12 +48,16 @@ export class RegisterComponent {
 
   registrieren(): void {
     if(this.form.valid) {
-    this.loginService
-      .register(this.model.firstname, this.model.lastname, this.model.username, this.model.password)
-      .subscribe((response) => {
-        this.snackBar.open('Sie haben sich erfolgreich registriert. Nun können Sie sich einloggen', 'X');
-        this.dialogRef.close(true);
-      });
+      if(this.model.password === this.model.password2) {
+        this.loginService
+        .register(this.model.firstname, this.model.lastname, this.model.username, this.model.password)
+        .subscribe(() => {
+          this.snackBar.open('Sie haben sich erfolgreich registriert. Nun können Sie sich einloggen', 'X');
+          this.dialogRef.close(true);
+        });
+      } else {
+        this.snackBar.open('Ihre Passwörter stimmen nicht überein.', 'X');
+      }
     } else {
       this.snackBar.open('Sie müssen alle Pflichtfelder ausfüllen, um fortfahren zu können.', 'X');
     }

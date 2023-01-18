@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Jetzt Registrieren</h1>
+<h1 mat-dialog-title align="center">Jetzt Registrieren</h1>
 <mat-dialog-content>
   <form [formGroup]="form">
   <mat-form-field>
@@ -40,6 +40,17 @@
       required
       formControlName="password"
       [(ngModel)]="model.password"
+    />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Passwort</mat-label>
+    <input
+      matInput
+      name="password2"
+      type="password"
+      required
+      formControlName="password2"
+      [(ngModel)]="model.password2"
     />
   </mat-form-field>
 </form>

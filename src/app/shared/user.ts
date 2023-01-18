@@ -19,5 +19,6 @@ export interface Userr {
   firstname: string;
   lastname: string;
   password: string;
+  password2: string;
   username: string;
 }
