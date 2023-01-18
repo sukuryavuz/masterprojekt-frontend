@@ -70,7 +70,7 @@ export class ProfileOverviewComponent implements OnInit {
     if(confirm("Sind Sie sich sicher, dass Sie ihr Account endgültig löschen möchten?")) {
       this.userService
       .removeAccount(this.user.username)
-      .subscribe(data => {
+      .subscribe(() => {
         this.snackBar.open(`Ihr Account wurde erfolgreich gelöscht.`, 'X');
         this.router.navigate(['/'])
       })
