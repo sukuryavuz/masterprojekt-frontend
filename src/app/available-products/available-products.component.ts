@@ -54,16 +54,16 @@ export class AvailableProductsComponent {
       this.snackBar.open('Sie müssen zuerst Produkte in die Auswahlliste hinzufügen, um sie kaufen zu können', 'X');
       return false;
     } else {
-      this.targetProducts.forEach((product) => {
-        if(confirm("Möchten Sie diese Produkte wirklich kaufen?")) {
-          this.userService
-          .buyProduct(this.user.username, product.productId)
-          .subscribe(() => {
-            this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft', 'X');
-            this.router.navigate(['/my-bought-products']);
-          })
-        }
-      })
+      if(confirm("Möchten Sie diese Produkte wirklich kaufen?")) {
+        this.targetProducts.forEach((product) => {
+            this.userService
+            .buyProduct(this.user.username, product.productId)
+            .subscribe(() => {
+              this.snackBar.open('Die ausgewählten Produkte wurden von Ihnen gekauft', 'X');
+              this.router.navigate(['/my-bought-products']);
+            })
+        })
+      }
     }
     return true;
   }
